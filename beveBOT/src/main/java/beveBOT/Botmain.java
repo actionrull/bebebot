@@ -20,9 +20,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class Botmain extends ListenerAdapter {
 	public static void main(String[] args) throws LoginException, InterruptedException, FileNotFoundException, IOException {	
 		String token;
-		Properties prop = new Properties();
-		prop.load(new FileInputStream("gradle.properties"));
-		token = prop.getProperty("DISCORD_BOT_TOKEN");
+		token = System.getenv("token");
 
 		JDA jda = JDABuilder.createDefault(token).build();
 	
